@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LegalSHEield - Justice for Every Woman, Everywhere</title>
+    <style>
+        :root {
+            --red: #d40000;
+            --black: #111;
+            --white: #fff;
+            --gray: #f5f5f5;
+            --dark-gray: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(182, 100, 100, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo h1 {
+            color: var(--black);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--red);
+            background-color: var(--white);
+            padding: 0px 0px;
+            border-radius: 2px;
+            font-weight: 800;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: var(--red);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .hero {
+            /* background: linear-gradient(135deg, rgba(212, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.8) 100%), url('https://placehold.co/1920x800/d40000/ffffff?text=LegalSHEield') center/cover; */
+            background: url('Legal_SHEild_bg.png') center/cover no-repeat;
+            padding: 100px 0;
+            text-align: center;
+            background-position: center 38%;
+        }
+        
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .tagline {
+            background-color: var(--red);
+            color: var(--white);
+            padding: 10px 20px;
+            display: inline-block;
+            margin: 20px 0;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--red);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 0, 0, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--red);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--red);
+        }
+        
+        .features {
+            /* background-color: #1a1a1a; */
+            background-color: #fff;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--black);
+            border: 1px solid rgba(212, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(212, 0, 0, 0.2);
+            border-color: var(--red);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--red);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+        
+        .feature-card p {
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+        
+        .chatbot {
+            background-color: #151515;
+        }
+        
+        .chat-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--black);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(212, 0, 0, 0.2);
+            border: 1px solid rgba(212, 0, 0, 0.3);
+        }
+        
+        .chat-header {
+            background-color: var(--red);
+            color: var(--white);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .chat-header h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        
+        .chat-messages {
+            height: 400px;
+            overflow-y: auto;
+            padding: 20px;
+            background-color: #0a0a0a;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            padding: 12px 18px;
+            border-radius: 18px;
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+        
+        .message.user {
+            background-color: var(--red);
+            color: var(--white);
+            margin-left: auto;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .message.bot {
+            background-color: #333;
+            color: var(--white);
+            margin-right: auto;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            background-color: #222;
+            border-top: 1px solid rgba(212, 0, 0, 0.3);
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 30px;
+            background-color: var(--white);
+            color: var(--black);
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .chat-input button {
+            background-color: var(--red);
+            color: var(--white);
+            border: none;
+            padding: 0 20px;
+            margin-left: 10px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .chat-input button:hover {
+            background-color: #b00000;
+        }
+        
+        .voice-btn {
+            background-color: transparent !important;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+        }
+        
+        .voice-btn i {
+            font-size: 1.5rem;
+        }
+        
+        .document-generator {
+            background-color: #1a1a1a;
+        }
+        
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--black);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(212, 0, 0, 0.2);
+            border: 1px solid rgba(212, 0, 0, 0.3);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--white);
+        }
+        
+        .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #444;
+            border-radius: 8px;
+            background-color: #222;
+            color: var(--white);
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .resources {
+            background-color: #fff;
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .resource-card {
+            background-color: var(--black);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(212, 0, 0, 0.1);
+            border: 1px solid rgba(212, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(212, 0, 0, 0.2);
+        }
+        
+        .resource-header {
+            background-color: var(--red);
+            color: var(--white);
+            padding: 15px;
+            font-weight: 600;
+        }
+        
+        .resource-content {
+            padding: 20px;
+        }
+        
+        .resource-content p {
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+        
+        .resource-content .contact {
+            color: var(--white);
+            font-weight: 600;
+        }
+        
+        .privacy {
+            background-color: var(--red);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .privacy-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .privacy-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        footer {
+            background-color: #0a0a0a;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--red);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #222;
+            color: var(--white);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--red);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        .resource-content a {
+    color: white;
+    /* text-decoration: none; */
+}
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <!-- <h1>Legal<b>SHE</b>ield</h1> -->
+                 <h1>Legal<span class="highlight">SHE</span>ield</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#chatbot">Chatbot</a></li>
+                    <li><a href="#documents">Documents</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <h2><br>LegalSHEield</h2>
+            <div class="tagline">Justice for Every Woman, Everywhere</div>
+            <p>Giving women a voice, courage, and the tools to seek justice—without fear</p>
+            <div>
+                <a href="#chatbot" class="btn">Get Legal Help Now</a>
+                <a href="#features" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">How We Empower Women</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Legal Guidance</h3>
+                    <p>Our conversational chatbot explains women's rights in simple terms across workplace harassment, domestic violence, marriage laws, and more.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Actionable Steps</h3>
+                    <p>Automatically generates complaint letters, petitions, and legal instructions that women can download and use immediately.</p>
+                </div>
+                <!-- <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Global Accessibility</h3>
+                    <p>Supports multiple languages and offers voice-based interaction, making legal advice available to those with limited literacy.</p>
+                </div> -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Safe & Confidential</h3>
+                    <p>Designed with privacy in mind—no personal data storage, anonymous chats, and secure encryption to protect your identity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="chatbot" id="chatbot">
+        <div class="container">
+            <h2 class="section-title">AI Legal Assistant</h2>
+            <div class="chat-container">
+                <div class="chat-header">
+                    <span class="status-indicator"></span>
+                    <h3>LegalSHEield Assistant</h3>
+                </div>
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot">
+                        Hello! I'm your LegalSHEield assistant. I'm here to help you understand your legal rights. How can I assist you today? You can ask about workplace harassment, domestic violence, marriage laws, or any other women's rights issue.
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="userInput" placeholder="Type your legal question here...">
+                    <button id="sendBtn"><i class="fas fa-paper-plane"></i></button>
+                    <button class="voice-btn" id="voiceBtn"><i class="fas fa-microphone"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="document-generator" id="documents">
+        <div class="container">
+            <h2 class="section-title">Document Generator</h2>
+            <div class="form-container">
+                <div class="form-group">
+                    <label for="docType">Select Document Type</label>
+                    <select id="docType">
+                        <option value="">Choose a document type...</option>
+                        <option value="complaint">Complaint Letter</option>
+                        <option value="petition">Legal Petition</option>
+                        <option value="guidance">Rights Guidance</option>
+                        <option value="affidavit">Affidavit</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="situation">Describe Your Situation</label>
+                    <textarea id="situation" placeholder="Briefly describe your situation (this will be used to customize your document)..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="language">Language</label>
+                    <select id="language">
+                        <option value="english">English</option>
+                        <option value="spanish">Spanish</option>
+                        <option value="french">French</option>
+                        <option value="arabic">Arabic</option>
+                        <option value="hindi">Hindi</option>
+                    </select>
+                </div>
+                <button class="btn" id="generateBtn">Generate Document</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="resources" id="resources">
+        <div class="container">
+            <h2 class="section-title">Support Resources</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <i class="fas fa-phone"></i> Emergency Helplines
+                    </div>
+                    <div class="resource-content">
+                        <p>National Domestic Violence Hotline</p>
+                        <p class="contact">1-800-799-SAFE (7233)</p>
+                        <p>Available 24/7, confidential, multilingual support</p>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <i class="fas fa-home"></i> Shelters & Safe Houses
+                    </div>
+                    <div class="resource-content">
+                        <p>Women's Shelter Network</p>
+                        <p class="contact"><a href="https://www.genesisshelter.org/" target="_blank">Find locations in your area</a></p>
+                        <p>Safe, temporary housing and support services</p>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <i class="fas fa-gavel"></i> Legal Aid Services
+                    </div>
+                    <div class="resource-content">
+                        <p>Legal Aid for Women</p>
+                        <p class="contact"><a href="https://nwlc.org/" target="_blank">Free legal consultations</a></p>
+                        <p>Pro bono attorneys specializing in women's rights</p>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <i class="fas fa-hands-helping"></i> Support Organizations
+                    </div>
+                    <div class="resource-content">
+                        <p>Women's Rights NGOs</p>
+                        <p class="contact"><a href="https://womenhelpingwomen.org/" target="_blank">Local and international groups</a></p>
+                        <p>Counseling, advocacy, and empowerment programs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="privacy">
+        <div class="container privacy-content">
+            <div class="privacy-icon">
+                <i class="fas fa-lock"></i>
+            </div>
+            <h2>Your Privacy is Our Priority</h2>
+            <p>LegalSHEield does not store personal information. All conversations are encrypted and anonymous. We believe every woman deserves legal support without fear of exposure or judgment.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>LegalSHEield</h3>
+                    <p>Justice for Every Woman, Everywhere.</p>
+                    <p>Breaking barriers to legal access through AI-powered support.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#chatbot">AI Assistant</a></li>
+                        <li><a href="#documents">Document Generator</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal Areas</h3>
+                    <ul>
+                        <li><a href="#">Workplace Rights</a></li>
+                        <li><a href="#">Domestic Violence</a></li>
+                        <li><a href="#">Marriage & Divorce</a></li>
+                        <li><a href="#">Inheritance Rights</a></li>
+                        <li><a href="#">Education Access</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="mailto:womeninstemtexas@gmail.com">support@legalsheild.org</a></li>
+                        <li>Partnerships: partners@legalsheild.org</li>
+                        <li>For emergencies, please call local authorities</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 LegalSHEield. All rights reserved. | A hackathon project dedicated to women's rights and access to justice.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Chatbot functionality
+        const chatMessages = document.getElementById('chatMessages');
+        const userInput = document.getElementById('userInput');
+        const sendBtn = document.getElementById('sendBtn');
+        const voiceBtn = document.getElementById('voiceBtn');
+
+        // Legal responses database
+        const legalResponses = {
+            'harassment': 'Workplace harassment is illegal in most countries. You have the right to a safe work environment. Document all incidents and report to HR or management. If they don\'t act, you can file a complaint with the Equal Employment Opportunity Commission or equivalent body in your country.',
+            'domestic violence': 'You have the right to live free from violence. Contact local authorities immediately if you\'re in danger. You may be eligible for a restraining order. Many countries have shelters and support services for survivors of domestic violence.',
+            'discrimination': 'Gender discrimination in the workplace is illegal in most jurisdictions. Keep records of discriminatory actions and report to your supervisor or HR department. You may have the right to file a complaint with a government agency.',
+            'marriage': 'Marriage laws vary by country, but generally both partners should enter marriage voluntarily. You have rights regarding property, inheritance, and decision-making within the marriage. Prenuptial agreements can protect your assets.',
+            'divorce': 'You have the right to seek divorce if your marriage is no longer working. The process varies by jurisdiction but typically involves filing paperwork and potentially negotiating custody, property division, and support arrangements.',
+            'inheritance': 'In many countries, women have equal inheritance rights to men. If you\'ve been denied your rightful inheritance, you may be able to challenge this in court. Customary laws sometimes discriminate against women, but constitutional protections often override these.',
+            'education': 'Girls have the same right to education as boys in most countries. If you or someone you know is being denied education, this may be a violation of human rights. Contact local education authorities or human rights organizations for support.',
+            'workplace': 'You have the right to equal pay for equal work, protection from harassment, and reasonable accommodations. Keep documentation of your work and any issues that arise. Report problems to management or human resources.',
+            'rights': 'Women\'s legal rights include protection from violence, equal opportunity in education and employment, reproductive rights, property ownership, and freedom from discrimination. These rights are protected by international conventions and most national laws.',
+            'help': 'I\'m here to help you understand your legal rights. You can ask about workplace harassment, domestic violence, marriage laws, inheritance rights, or any other women\'s rights issue. How can I assist you today?'
+        };
+
+        function addMessage(message, isUser) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(isUser ? 'user' : 'bot');
+            messageDiv.textContent = message;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function getBotResponse(userMessage) {
+            const lowerMessage = userMessage.toLowerCase();
+            
+            // Check for keywords in the user's message
+            for (const [key, response] of Object.entries(legalResponses)) {
+                if (lowerMessage.includes(key)) {
+                    return response;
+                }
+            }
+            
+            // Default response if no keywords match
+            return "I understand this is important. While I can provide general information about women's legal rights, I recommend consulting with a local legal professional for advice specific to your situation. Could you tell me more about what you're experiencing so I can provide more targeted information?";
+        }
+
+        sendBtn.addEventListener('click', () => {
+            const message = userInput.value.trim();
+            if (message) {
+                addMessage(message, true);
+                userInput.value = '';
+                
+                // Simulate typing delay
+                setTimeout(() => {
+                    const botResponse = getBotResponse(message);
+                    addMessage(botResponse, false);
+                }, 1000);
+            }
+        });
+
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendBtn.click();
+            }
+        });
+
+        // Voice input functionality
+        let recognizing = false;
+        let recognition;
+
+        // Check for browser support
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.lang = 'en-US';
+
+            recognition.onstart = () => {
+                recognizing = true;
+                voiceBtn.innerHTML = '<i class="fas fa-stop"></i>';
+                voiceBtn.style.backgroundColor = '#b00000';
+            };
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                userInput.value = transcript;
+            };
+
+            recognition.onend = () => {
+                recognizing = false;
+                voiceBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+                voiceBtn.style.backgroundColor = '';
+            };
+
+            recognition.onerror = (event) => {
+                console.error('Speech recognition error', event.error);
+                recognizing = false;
+                voiceBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+                voiceBtn.style.backgroundColor = '';
+            };
+
+            voiceBtn.addEventListener('click', () => {
+                if (recognizing) {
+                    recognition.stop();
+                } else {
+                    recognition.start();
+                }
+            });
+        } else {
+            voiceBtn.style.display = 'none';
+            console.log('Speech recognition not supported in this browser');
+        }
+
+        // Document Generator
+        const generateBtn = document.getElementById('generateBtn');
+        const docType = document.getElementById('docType');
+        const situation = document.getElementById('situation');
+        const language = document.getElementById('language');
+
+        generateBtn.addEventListener('click', () => {
+            if (!docType.value || !situation.value) {
+                alert('Please fill in all fields to generate a document.');
+                return;
+            }
+
+            // Simulate document generation
+            const docTypes = {
+                'complaint': 'Complaint Letter',
+                'petition': 'Legal Petition',
+                'guidance': 'Rights Guidance Document',
+                'affidavit': 'Affidavit'
+            };
+
+            const languages = {
+                'english': 'English',
+                'spanish': 'Spanish',
+                'french': 'French',
+                'arabic': 'Arabic',
+                'hindi': 'Hindi'
+            };
+
+            // Create a simulated document
+            const documentContent = `
+${docTypes[docType.value]}
+Generated for: ${new Date().toLocaleDateString()}
+Language: ${languages[language.value]}
+Situation Summary: ${situation.value.substring(0, 100)}${situation.value.length > 100 ? '...' : ''}
+
+[This is a generated template document based on your inputs. 
+In a full implementation, this would create a downloadable 
+document in your selected language with appropriate legal language 
+and formatting for your specific situation.]
+
+Next Steps:
+1. Review this document carefully
+2. Consult with a legal professional if possible
+3. Customize with your specific details
+4. Use as needed in your situation
+
+Remember: This document is for informational purposes only and 
+does not constitute legal advice.`;
+
+            // In a real application, this would trigger a download
+            alert(`Document generated: ${docTypes[docType.value]} in ${languages[language.value]}\n\nWould download file in a full implementation.`);
+            
+            // For demo purposes, show the content in console
+            console.log(documentContent);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation on scroll
+        const featureCards = document.querySelectorAll('.feature-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        featureCards.forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
+```
+
